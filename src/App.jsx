@@ -3,10 +3,10 @@ import ResetStyle from './styles/ResetStyle';
 import GlobalStyle from "./styles/GlobalStyles";
 import styled from "styled-components";
 
-import SideChannelList from "./layout/SideChannelList";
-import Message from "./layout/Message";
-import SideMemberList from "./layout/SideMemberList";
-import ProfileBar from "./layout/ProfileBar";
+import SideChannelList from "./components/templates/SideChannelList";
+import Message from "./components/templates/Message";
+import SideMemberList from "./components/templates/SideMemberList";
+import ProfileBar from "./components/templates/ProfileBar";
 
 // styled-components 사용법
 // const 변수이름 = styled.태그종류 `안에 작성` < 백틱
