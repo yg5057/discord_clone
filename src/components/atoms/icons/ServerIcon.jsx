@@ -1,20 +1,20 @@
-import React from 'react'
-import styled from "styled-components";
+import React from "react";
+import styled from 'styled-components'
 
 
-const ServerIconText = ({ label, isSelected, onClick }) => {
+const ServerIcon = ({ src, alt = "serverIcon", isSelected, onClick, label }) => {
   return (
     <Wrapper onClick={onClick} $selected={isSelected}>
       {isSelected && <Selector />}
       <IconWrapper className="icon-wrapper">
-        <Label>{label}</Label>
+        <IconImage src={src} alt={alt} />
       </IconWrapper>
       <Tooltip>{label}</Tooltip>
     </Wrapper>
   );
 };
 
-export default ServerIconText
+export default ServerIcon
 
 
 const Wrapper = styled.div`
@@ -44,25 +44,17 @@ const IconWrapper = styled.div.attrs(() => ({
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1.2rem;
   border-radius: 12px;
   background: #47474d;
-  color: #FFF;
-  font-family: var( --font-primary );
-  font-size: 1.2rem;
-  font-style: normal;
-  font-weight: 600;
-  text-align: center;
-  overflow: hidden;
   transition: background 0.2s ease;
+  box-sizing: border-box;
 `;
 
-const Label = styled.span`
-  display: block;
+const IconImage = styled.img`
   width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+  height: 100%;
+  object-fit: contain;
 `;
 
 const Selector = styled.div`
@@ -72,7 +64,7 @@ const Selector = styled.div`
   transform: translateY(-50%);
   width: .4rem;
   height: 90%;
-  background-color: white;
+  background-color: var(--default-white);
   border-radius: 0 4px 4px 0;
 `;
 

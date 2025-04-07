@@ -16,25 +16,44 @@ const GlobalStyle = createGlobalStyle`
     --chat-bg-color: #2E2E33;
     --default-white: #ffffff;
     --active-bg-color: #5A65EA;
-    --primary-txt-color: #D9D7DB;
-    --secondary-txt-color: #95929C;
-    --primary-border-color: #35353B;
+    --primary-txt-color: rgba(255, 255, 255, 0.80);
+    --secondary-txt-color: rgba(255, 255, 255, 0.60);
+    --primary-border-color: #3e3e46;
   }
 
-  html {
+  html, body {
     font-size: 62.5%;  /* 1rem = 10px */
-  }
-
-  body {
-    font-size: 1.6rem;
+    font-family: var(--font-primary);
     background-color: var(--main-bg-color);
     color: var(--primary-txt-color);
-    font-size: 1.6rem;
+    overflow-x: hidden;
   }
 
   a {
     text-decoration: none;
     color: var(--hover-txt-color);
+  }
+
+ /* WebKit 브라우저용 스크롤 커스터마이징 (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 0px; /* 가로 스크롤 완전 제거 */
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  /* Firefox 전용 스크롤 스타일 */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  }
+  /* iOS Safari에서 스크롤 부드럽게 */
+  html {
+    -webkit-overflow-scrolling: touch;
   }
 `;
 

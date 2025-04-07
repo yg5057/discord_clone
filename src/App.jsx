@@ -3,6 +3,7 @@ import ResetStyle from './styles/ResetStyle';
 import GlobalStyle from "./styles/GlobalStyles";
 import styled from "styled-components";
 
+import Header from "./components/molecules/Header";
 import SideServerList from "./components/templates/SideServerList";
 import SideChannelList from "./components/templates/SideChannelList";
 import Message from "./components/templates/Message";
@@ -12,18 +13,19 @@ import ProfileBar from "./components/templates/ProfileBar";
 
 function App() {
   const [selectedLabel, setSelectedLabel] = useState("");
-  
+
   return (
     <>
       <ResetStyle />
       <GlobalStyle />
       <MainWrapper>
+        <Header label={selectedLabel} />
         <ContsWrapper>
         <SideServerList onSelectLabel={setSelectedLabel} />
         <SideChannelList label={selectedLabel} />
-          <Message />
+          {/* <Message />
           <SideMemberList />
-          <ProfileBar />
+          <ProfileBar /> */}
         </ContsWrapper>
       </MainWrapper>
     </>

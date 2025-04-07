@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import ServerIcon from '../atoms/ServerIcon'
-import ServerIconText from "../atoms/ServerIconText";
+import ServerIcon from '../atoms/icons/ServerIcon'
+import ServerIconText from "../atoms/icons/ServerIconText";
 
 import dmIcon from "../../assets/svg/icon-dm.svg";
 import serverIcon from "../../assets/svg/icon-include-server.svg";
@@ -22,8 +22,8 @@ const SideServerList = ({ onSelectLabel }) => {
           src={dmIcon}
           alt="dm 아이콘"
           label='다이렉트 메세지'
-          isSelected={selectedLabel === 'DM'}
-          onClick={() => handleSelect('대화 찾기 또는 시작하기')}
+          isSelected={selectedLabel === '다이렉트 메세지'}
+          onClick={() => handleSelect('다이렉트 메세지')}
         />
         <ServerIconText
           label='4월 팀스터디'
