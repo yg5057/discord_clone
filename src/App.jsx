@@ -23,8 +23,8 @@ function App() {
         <ContsWrapper>
         <SideServerList onSelectLabel={setSelectedLabel} />
         <SideChannelList label={selectedLabel} />
-          {/* <Message />
-          <SideMemberList />
+          <Message />
+          {/* <SideMemberList />
           <ProfileBar /> */}
         </ContsWrapper>
       </MainWrapper>

@@ -4,9 +4,9 @@ import styled from "styled-components";
 
 const ServerIconText = ({ label, isSelected, onClick }) => {
   return (
-    <Wrapper onClick={onClick} $selected={isSelected}>
+    <Wrapper onClick={onClick} $selected={isSelected}> 
       {isSelected && <Selector />}
-      <IconWrapper className="icon-wrapper">
+      <IconWrapper className="icon-wrapper" $selected={isSelected}>
         <Label>{label}</Label>
       </IconWrapper>
       <Tooltip>{label}</Tooltip>
@@ -35,6 +35,7 @@ const Wrapper = styled.div`
   }
 `;
 
+
 const IconWrapper = styled.div.attrs(() => ({
   className: 'icon-wrapper',
 }))`
@@ -45,16 +46,20 @@ const IconWrapper = styled.div.attrs(() => ({
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  background: #47474d;
+  background: ${({ $selected }) => 
+    $selected ? 'var(--active-bg-color)' : '#47474d'};
   color: var(--default-white);
-  font-family: var( --font-primary );
+  font-family: var(--font-primary);
   font-size: 1.2rem;
-  font-style: normal;
   font-weight: 600;
   text-align: center;
   overflow: hidden;
   transition: background 0.2s ease;
   box-sizing: border-box;
+
+  &:hover {
+    background: var(--active-bg-color);
+  }
 `;
 
 const Label = styled.span`

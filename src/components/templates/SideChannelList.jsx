@@ -4,10 +4,14 @@ import ChannelIcon from "../atoms/icons/ChannelIcon";
 
 import CalendarIcon from '../../assets/svg/channelEvent.svg';
 import DropDowIcon from '../../assets/svg/dropdown.svg';
+import ChannelTextIcon from '../../assets/svg/channelText.svg';
 
 const SideChannelList = ({ label }) => {
   const [isOpen, setIsOpen] = useState(true);
+  const [selectedChannel, setSelectedChannel] = useState(null);
+
   const handleToggle = () => { setIsOpen((prev) => !prev); }
+  const handleSelectChannel = (channel) => { setSelectedChannel(channel); };
 
   return (
     <MainWrapper>
@@ -24,11 +28,32 @@ const SideChannelList = ({ label }) => {
             채팅 채널
             <ChannelIcon src={DropDowIcon} />
           </ChatTitleWrapper>
+
           {isOpen && (
             <ChannelList>
-              <ChannelItem># 일반</ChannelItem>
-              <ChannelItem># 질문</ChannelItem>
-              <ChannelItem># 자료공유</ChannelItem>
+              <ChannelItem
+                isActive={selectedChannel === '일반'}
+                onClick={() => handleSelectChannel('일반')}
+              >
+                <ChannelIcon src={ChannelTextIcon} />
+                일반
+              </ChannelItem>
+
+              <ChannelItem
+                isActive={selectedChannel === '질문'}
+                onClick={() => handleSelectChannel('질문')}
+              >
+                <ChannelIcon src={ChannelTextIcon} />
+                질문
+              </ChannelItem>
+
+              <ChannelItem
+                isActive={selectedChannel === '자료공유'}
+                onClick={() => handleSelectChannel('자료공유')}
+              >
+                <ChannelIcon src={ChannelTextIcon} />
+                자료공유
+              </ChannelItem>
             </ChannelList>
           )}
         </ChatListWrapper>
@@ -119,6 +144,11 @@ const ChatTitleWrapper = styled.div`
   font-weight: 600;
   line-height: normal;
   box-sizing: border-box;
+  transition: color 0.2s ease; 
+
+  &:hover {
+    color: var(--default-white);
+  }
 `;
 
 
@@ -131,11 +161,23 @@ const ChannelList = styled.ul`
 `;
 
 const ChannelItem = styled.li`
-  color: var(--default-white);
-  font-size: 1.4rem;
+  width: 100%;
+  padding: .6rem .8rem;
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  border-radius: 8px;
   cursor: pointer;
+  font-family: var(--font-primary);
+  font-size: 1.6rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+
+  color: ${({ isActive }) => isActive ? 'var(--default-white)' : 'var(--secondary-txt-color)'};
+  background: ${({ isActive }) => isActive ? '#47474D' : 'transparent'};
 
   &:hover {
-    text-decoration: underline;
+    background: #47474D;
+    color: var(--default-white);
   }
 `;
