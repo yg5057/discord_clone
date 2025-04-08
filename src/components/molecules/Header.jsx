@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import HeaderIcon from '../atoms/icons/HeaderIcon';
 
@@ -28,6 +28,7 @@ export default Header
 const Wrapper = styled.header`
   width: 100%;
   height: fit-content;
+  min-height: 4rem;
   display: flex;
   flex-direction: row;
   padding: .8rem 1.6rem;

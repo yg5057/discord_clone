@@ -28,9 +28,15 @@ const SideChannelList = ({ label }) => {
             채팅 채널
             <ChannelIcon src={DropDowIcon} />
           </ChatTitleWrapper>
-
           {isOpen && (
             <ChannelList>
+              <ChannelItem
+                isActive={selectedChannel === '클론코딩'}
+                onClick={() => handleSelectChannel('클론코딩')}
+              >
+                <ChannelIcon src={ChannelTextIcon} />
+                클론코딩
+              </ChannelItem>
               <ChannelItem
                 isActive={selectedChannel === '일반'}
                 onClick={() => handleSelectChannel('일반')}
@@ -38,21 +44,19 @@ const SideChannelList = ({ label }) => {
                 <ChannelIcon src={ChannelTextIcon} />
                 일반
               </ChannelItem>
-
               <ChannelItem
-                isActive={selectedChannel === '질문'}
-                onClick={() => handleSelectChannel('질문')}
+                isActive={selectedChannel === 'exp미션'}
+                onClick={() => handleSelectChannel('exp미션')}
               >
                 <ChannelIcon src={ChannelTextIcon} />
-                질문
+                exp미션
               </ChannelItem>
-
               <ChannelItem
-                isActive={selectedChannel === '자료공유'}
-                onClick={() => handleSelectChannel('자료공유')}
+                isActive={selectedChannel === 'nextjs'}
+                onClick={() => handleSelectChannel('nextjs')}
               >
                 <ChannelIcon src={ChannelTextIcon} />
-                자료공유
+                nextjs
               </ChannelItem>
             </ChannelList>
           )}
@@ -150,14 +154,11 @@ const ChatTitleWrapper = styled.div`
     color: var(--default-white);
   }
 `;
-
-
 const ChannelList = styled.ul`
   display: flex;
   flex-direction: column;
   padding-left: 1.6rem;
-  gap: .8rem;
-  margin-top: .8rem;
+  gap: .4rem;
 `;
 
 const ChannelItem = styled.li`
@@ -169,7 +170,7 @@ const ChannelItem = styled.li`
   border-radius: 8px;
   cursor: pointer;
   font-family: var(--font-primary);
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 600;
   transition: all 0.2s ease;
 

@@ -22,11 +22,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html, body {
+    width: 100vw;
+    height: 100vh;
     font-size: 62.5%;  /* 1rem = 10px */
     font-family: var(--font-primary);
     background-color: var(--main-bg-color);
     color: var(--primary-txt-color);
     overflow-x: hidden;
+    overflow-y: scroll;
   }
 
   a {

@@ -65,6 +65,21 @@ table {
     text-decoration: none;
     color: inherit;
   }
+  input {
+    all: unset;
+    box-sizing: border-box;
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+
+
 `;
 
 export default ResetStyle;

@@ -21,11 +21,11 @@ function App() {
       <MainWrapper>
         <Header label={selectedLabel} />
         <ContsWrapper>
-        <SideServerList onSelectLabel={setSelectedLabel} />
-        <SideChannelList label={selectedLabel} />
-          <Message />
-          {/* <SideMemberList />
-          <ProfileBar /> */}
+          <SideServerList onSelectLabel={setSelectedLabel} />
+          <SideChannelList label={selectedLabel} />
+            <Message />
+            {/* <SideMemberList />
+            <ProfileBar /> */}
         </ContsWrapper>
       </MainWrapper>
     </>
@@ -48,10 +48,11 @@ const MainWrapper = styled.div`
 
 const ContsWrapper = styled.div`
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 4rem);
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   box-sizing: border-box;
+  overflow-y: scroll;
 `;
