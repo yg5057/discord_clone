@@ -160,6 +160,7 @@ const MessageListWrapper = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
+  padding: 0 0.5rem;
   flex-direction: column;
   overflow-y: scroll;
   box-sizing: border-box;
@@ -170,7 +171,6 @@ const MessageItem = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 1.2rem;
-  padding: 0.5rem 0;
   word-break: break-word;
   padding: 1.2rem 0;
 `;
