@@ -6,15 +6,17 @@ import CalendarIcon from "../../assets/svg/channelEvent.svg";
 import DropDowIcon from "../../assets/svg/dropdown.svg";
 import ChannelTextIcon from "../../assets/svg/channelText.svg";
 
-const SideChannelList = ({ label }) => {
+const SideChannelList = ({ label, onSelectChannel }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [selectedChannel, setSelectedChannel] = useState(null);
 
   const handleToggle = () => {
     setIsOpen((prev) => !prev);
   };
+
   const handleSelectChannel = (channel) => {
     setSelectedChannel(channel);
+    onSelectChannel(channel);
   };
 
   return (

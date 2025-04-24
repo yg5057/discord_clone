@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ResetStyle from './styles/ResetStyle';
+import ResetStyle from "./styles/ResetStyle";
 import GlobalStyle from "./styles/GlobalStyles";
 import styled from "styled-components";
 
@@ -10,9 +10,9 @@ import Message from "./components/templates/Message";
 import SideMemberList from "./components/templates/SideMemberList";
 import ProfileBar from "./components/templates/ProfileBar";
 
-
 function App() {
   const [selectedLabel, setSelectedLabel] = useState("");
+  const [selectedChannel, setSelectedChannel] = useState("일반");
 
   return (
     <>
@@ -22,9 +22,12 @@ function App() {
         <Header label={selectedLabel} />
         <ContsWrapper>
           <SideServerList onSelectLabel={setSelectedLabel} />
-          <SideChannelList label={selectedLabel} />
-            <Message />
-            {/* <SideMemberList />
+          <SideChannelList
+            label={selectedLabel}
+            onSelectChannel={setSelectedChannel}
+          />
+          <Message selectedChannel={selectedChannel} />
+          {/* <SideMemberList />
             <ProfileBar /> */}
         </ContsWrapper>
       </MainWrapper>
@@ -33,7 +36,6 @@ function App() {
 }
 
 export default App;
-
 
 const MainWrapper = styled.div`
   width: 100vw;

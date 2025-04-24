@@ -11,7 +11,7 @@ const supabaseKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZsb3dkem9pZ295YXVkc3lkcWFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM0MDg3NTUsImV4cCI6MjA1ODk4NDc1NX0.7ltcwu8G4_awXU5SFkAXRGnSeThjTTqAOVUm1bjtmnU";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-export default function Message() {
+export default function Message({ selectedChannel }) {
   const [username, setUsername] = useState("조연경");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
@@ -82,7 +82,7 @@ export default function Message() {
 
   return (
     <Wrapper>
-      <MessageHeader># 일반</MessageHeader>
+      <MessageHeader># {selectedChannel || "일반"}</MessageHeader>
       <MessageContsWrapper>
         <MessageListWrapper>
           {messages.map((msg) => (
@@ -139,6 +139,13 @@ const MessageHeader = styled.div`
   align-self: stretch;
   border-top: 1px solid var(--primary-border-color);
   box-sizing: border-box;
+
+  color: var(--primary-txt-color);
+  font-family: var(--font-primary);
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 `;
 
 const MessageContsWrapper = styled.div`
@@ -205,7 +212,7 @@ const MsgNameText = styled.p`
 
 const TimeText = styled.p`
   color: var(--primary-txt-color);
-  font-family: "gg sans Normal", "sans-serif";
+  font-family: var(--font-primary);
   font-size: 1rem;
   font-style: normal;
   line-height: normal;
